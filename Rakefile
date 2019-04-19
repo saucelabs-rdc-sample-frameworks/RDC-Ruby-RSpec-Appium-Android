@@ -11,6 +11,8 @@ task :default => :spec
 desc "Run Tests on Android"
 task :test_android_device do
   ENV['platformName'] = 'Android'
+  ENV['platformVersion'] = '9'
+  ENV['deviceName'] = 'Google Pixel XL'
   ENV['JUNIT_DIR'] = 'junit_reports/android_device'
 
   Rake::Task[:run_rspec].execute

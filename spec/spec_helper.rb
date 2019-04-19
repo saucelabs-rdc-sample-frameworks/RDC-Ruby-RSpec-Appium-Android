@@ -12,7 +12,9 @@ RSpec.configure do |config|
   config.before(:each) do |example|
     caps = {
         testobject_api_key: ENV['SAUCE_API_KEY'],
-        deviceName: ENV['platformName'],
+        platformName: ENV['platformName'],
+        platformVersion: ENV['platformVersion'],
+        deviceName: ENV['deviceName'],
         testobject_test_name: example.full_description
     }
 
