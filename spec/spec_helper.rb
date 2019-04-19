@@ -11,7 +11,7 @@ RSpec.configure do |config|
 
   config.before(:each) do |example|
     caps = {
-        testobject_api_key: ENV['TESTOBJECT_API_KEY'],
+        testobject_api_key: ENV['SAUCE_API_KEY'],
         deviceName: ENV['platformName'],
         testobject_test_name: example.full_description
     }
@@ -25,7 +25,7 @@ RSpec.configure do |config|
   end
 
   config.after(:each) do |example|
-    url = "https://#{ENV['TESTOBJECT_API_KEY']}:#{'blank'}@app.testobject.com/api/rest/v1/appium/session/#{@sessionid}/test"
+    url = "https://#{ENV['SAUCE_API_KEY']}:#{'blank'}@app.testobject.com/api/rest/v1/appium/session/#{@sessionid}/test"
 
     call = {url: url,
             method: :put,
